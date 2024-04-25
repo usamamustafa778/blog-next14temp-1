@@ -1,34 +1,58 @@
-import Image from "next/image";
 import React from "react";
-import { Container, FullContainer } from "..";
+import FullContainer from "../common/FullContainer";
+import Container from "../common/Container";
+import Image from "next/image";
+import { Badge } from "../ui/badge";
+import { cn } from "@/lib/utils";
+import { Cormorant } from "next/font/google";
 
-export default function Banner() {
+const myFont = Cormorant({ subsets: ["cyrillic"] });
+
+export default function Banner({
+  title,
+  image,
+  badge,
+  tagline,
+  author,
+  published_at,
+  logo,
+}) {
   return (
-    <div
-      style={{ backgroundImage: "url(/img/banner_image.jpg)" }}
-      className="bg-cover bg-center bg-fixed h-[calc(100vh-130px)] w-full flex flex-col justify-between p-10"
-    >
+    <div className="lg:h-[calc(100vh-150px)] 2xl:h-[calc(100vh-230px)] overflow-hidden relative w-full flex flex-col justify-between p-10">
+      <Image
+        src={image}
+        alt="Background Image"
+        priority={true}
+        fill={true}
+        loading="eager"
+        className="-z-10 w-full h-full object-cover absolute top-0"
+      />
       <div className="flex items-center justify-center">
         <Image
           height={100}
           width={200}
-          src="/img/logo.svg"
+          src={`${process.env.NEXT_PUBLIC_SITE_MANAGER}/images/industry_template_images/${process.env.NEXT_PUBLIC_TEMPLATE_ID}/${logo?.file_name}`}
           alt="logo"
           className="ml-auto mr-auto"
         />
       </div>
-      <FullContainer>
-        <Container>
-          <div className="w-full flex justify-end">
-            <div className="bg-black p-6 lg:w-5/12">
-              <p className="text-2xl font-bold underline text-red-300">
-                Exclusive
-              </p>
-              <p className="text-4xl md:text-5xl font-extrabold text-white mt-4">
-                One Love star weighs in on playing Bob Marley
-              </p>
+      <FullContainer className="flex-1 text-white">
+        <Container className="gap-5 bg-black/50 p-9 max-w-2xl text-center">
+          {badge && <Badge>{badge}</Badge>}
+          <h1
+            className={cn(
+              "font-extrabold text-6xl capitalize max-w-screen-md",
+              myFont.className
+            )}
+          >
+            {title}
+          </h1>
+          {tagline && <p className="text-xl">{tagline}</p>}
+          {author && (
+            <div className="flex items-center justify-center gap-4">
+              <p>{author}</p> -<p>{published_at}</p>
             </div>
-          </div>
+          )}
         </Container>
       </FullContainer>
     </div>

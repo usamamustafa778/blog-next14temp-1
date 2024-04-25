@@ -1,16 +1,13 @@
 import React, { useState } from "react";
-import {
-  Bars3Icon,
-  MagnifyingGlassIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/solid";
-import { Container, FullContainer } from "..";
-import Image from "next/image";
+import { Menu, Search, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import FullContainer from "../common/FullContainer";
+import Container from "../common/Container";
 
 const menuList = ["TV", "movies", "soaps", "tech", "news"];
 
-export default function NavMenu() {
+export default function NavMenu({ logo }) {
   const [sidebar, setSidebar] = useState(false);
 
   return (
@@ -18,7 +15,7 @@ export default function NavMenu() {
       <FullContainer className="bg-black text-white py-3 sticky -top-1 z-50">
         <Container className="md:flex-row md:justify-between">
           <div className="flex items-center gap-6">
-            <Bars3Icon
+            <Menu
               onClick={() => setSidebar(true)}
               className="cursor-pointer w-8"
             />
@@ -26,7 +23,7 @@ export default function NavMenu() {
               <Image
                 height={70}
                 width={120}
-                src="/img/logo.svg"
+                src={`${process.env.NEXT_PUBLIC_SITE_MANAGER}/images/industry_template_images/${process.env.NEXT_PUBLIC_TEMPLATE_ID}/${logo?.file_name}`}
                 alt="logo"
                 className="mt-1"
               />
@@ -57,18 +54,18 @@ export default function NavMenu() {
               <Image
                 height={70}
                 width={140}
-                src="/img/logo.svg"
+                src={`${process.env.NEXT_PUBLIC_SITE_MANAGER}/images/industry_template_images/${process.env.NEXT_PUBLIC_TEMPLATE_ID}/${logo?.file_name}`}
                 alt="logo"
                 className="mt-1"
               />
             </Link>
-            <XMarkIcon
+            <X
               className="w-8 text-red-300 cursor-pointer"
               onClick={() => setSidebar(false)}
             />
           </div>
           <div className="flex items-center gap-3 font-normal mr-5 mt-8 w-full">
-            <MagnifyingGlassIcon className="w-7" />
+            <Search className="w-7" />
             <input
               className="bg-transparent border-b border-white/50 pb-1 outline-none flex-1"
               placeholder="Search..."

@@ -1,12 +1,10 @@
-const Container = ({ children, className, style, title, onClick }) => (
-  <div
-    title={title}
-    style={style}
-    onClick={onClick}
-    className={`w-11/12 xl:w-10/12 flex flex-col items-center justify-center bg-cover bg-center relative ${className}`}
-  >
-    {children}
-  </div>
-);
-
-export default Container;
+export default function Container({ children, className, style }) {
+  return (
+    <div
+      style={style}
+      className={`w-11/12 max-w-screen-xl flex items-center justify-center flex-col bg-cover bg-center ${className}`}
+    >
+      {children}
+    </div>
+  );
+}

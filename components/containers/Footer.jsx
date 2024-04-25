@@ -1,6 +1,7 @@
 import React from "react";
-import { Container, FullContainer } from "..";
 import Image from "next/image";
+import FullContainer from "../common/FullContainer";
+import Container from "../common/Container";
 
 const footerList = [
   "Features",
@@ -33,12 +34,12 @@ const footerList = [
   "NOW",
 ];
 
-export default function Footer() {
+export default function Footer({ logo }) {
   return (
     <FullContainer className="bg-black text-white py-16">
       <Container>
         <div className="w-full text-xs md:text-sm">
-          <Image height={70} width={150} src="/img/logo.svg" alt="logo" />
+          <Image height={70} width={150} src={logo} alt="logo" />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-5 md:gap-x-7 lg:gap-x-10 gap-y-3 md:gap-y-4 font-bold mt-10 text-xs md">
             {footerList.map((item, index) => (
               <div
@@ -53,7 +54,7 @@ export default function Footer() {
             height={60}
             width={60}
             alt="network"
-            src="/img/network.svg"
+            src="/network.svg"
             className="mt-10"
           />
           <p className="uppercase mt-10 font-bold">
@@ -80,13 +81,6 @@ export default function Footer() {
           <button className="border py-2 md:py-3 px-4 md:px-5 font-bold mt-10 hover:bg-white/80 hover:text-black transition-all">
             Cookies Choice
           </button>
-          <Image
-            height={60}
-            width={130}
-            alt="network"
-            src="/img/ipso.svg"
-            className="mt-10"
-          />
         </div>
       </Container>
     </FullContainer>

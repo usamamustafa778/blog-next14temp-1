@@ -4,11 +4,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "hips.hearstapps.com",
+        hostname: "apisitem.ecommcube.com",
       },
     ],
   },
   reactStrictMode: true,
 };
 
-module.exports = nextConfig;
+export default nextConfig;

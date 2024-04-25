@@ -8,7 +8,7 @@ const SectionHeading = ({ title, tagline }) => (
       </div>
       <div className="flex-1"></div>
     </div>
-    <div className="w-full mt-5">
+    <div className="w-full mt-5 text-left">
       <h2 className="text-4xl lg:text-5xl font-extrabold uppercase">{title}</h2>
       <p className="uppercase mt-2">{tagline}</p>
     </div>
