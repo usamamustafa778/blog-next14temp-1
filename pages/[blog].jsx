@@ -22,6 +22,7 @@ export default function Blog({ logo, myblog, blog_list }) {
       </Head>
       <NavMenu logo={logo} />
       <Banner
+        logo={logo}
         title={myblog?.value.title}
         tagline={myblog?.value.tagline}
         image={`${process.env.NEXT_PUBLIC_SITE_MANAGER}/images/industry_template_images/${process.env.NEXT_PUBLIC_TEMPLATE_ID}/${myblog?.file_name}`}
